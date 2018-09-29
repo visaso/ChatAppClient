@@ -25,42 +25,36 @@ object ChatHistory {
         return messages
     }
 
-    fun initSocket(activity: AppCompatActivity) {
+    interface ChatListener {
+        fun onConnected()
+        fun onMessage(s: String)
+    }
+
+    fun initSocket(chatListener: ChatListener) {
         //Thread(Runnable {
             try {
                 //val host = "10.0.2.2"
-                val host = "192.168.1.6"
-                var listView = activity.findViewById<ListView>(R.id.listView)
-                socket = Socket(host, 60123)
+                val host = "192.168.43.94"
+
+                socket = Socket(host, 60805)
                 out = PrintWriter(socket.getOutputStream(), true)
                 input = BufferedReader(InputStreamReader(socket.getInputStream()))
                 scanner = Scanner(input)
-                adapter = CustomAdapter(activity, messages)
-                listView.adapter = adapter
+                chatListener.onConnected()
+
                 //val stdIn = BufferedReader(InputStreamReader(System.`in`))
                 Log.e(host, "Input Success")
                 System.out.println("Input Success")
-                var username = "xdlsd14"
+                var username = "xdlsd20"
                 //var username = intent.getStringExtra("EXTRANAME")
                 out.println(":user $username")
                 while (true) {
                     val message = scanner.nextLine()
-                    activity.runOnUiThread{
-                        var json = JSONObject(message)
-                        if (json.has("name")) {
-                            if (json.getString("name") == "xdlsd3") {
-                                adapter.add(json.getString("timeSent"),json.getString("name"),json.getString("text"),TYPE.OUTGOING)
-                            } else {
-                                adapter.add(json.getString("timeSent"),json.getString("name"),json.getString("text"),TYPE.INCOMING)
-                            }
-                        } else {
-                            adapter.add(json.getString("timeSent"),"Server" ,json.getString("text"),TYPE.SERVER)
-                        }
-                        listView.setSelection(adapter.count - 1)
-                    }
+                    chatListener.onMessage(message)
+
                 }
             } catch (e: Exception) {
-                Log.e("xd", "FAIL")
+                Log.e("xd", "FAIL ${e.message}")
             }
        // }).start()
     }
