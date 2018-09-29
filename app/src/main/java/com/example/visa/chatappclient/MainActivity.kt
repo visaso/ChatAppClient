@@ -35,8 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val self = this
+        var username = intent.getStringExtra("EXTRANAME")
         Thread(Runnable {
-            ChatHistory.initSocket(object:ChatHistory.ChatListener{
+            ChatHistory.initSocket(username, object:ChatHistory.ChatListener{
                 override fun onConnected() {
 
                 }

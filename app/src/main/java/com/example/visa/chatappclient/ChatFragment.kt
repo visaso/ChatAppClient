@@ -48,7 +48,7 @@ class ChatFragment: Fragment() {
         if (initialized) {
             var json = JSONObject(message)
             if (json.has("name")) {
-                if (json.getString("name") == "xdlsd3") {
+                if (json.getString("name") == ChatHistory.getName()) {
                     adapter.add(json.getString("timeSent"), json.getString("name"), json.getString("text"), TYPE.OUTGOING)
                 } else {
                     adapter.add(json.getString("timeSent"), json.getString("name"), json.getString("text"), TYPE.INCOMING)
