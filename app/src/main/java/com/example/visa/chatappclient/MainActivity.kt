@@ -2,6 +2,7 @@ package com.example.visa.chatappclient
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -16,17 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, UserListFragment()).commit()
         var chatFragment = ChatFragment()
 
         bottom_navigation.setOnNavigationItemSelectedListener{
             when (it.itemId) {
                 R.id.action_chat -> {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, chatFragment).commit()
+
+                    val ft = getSupportFragmentManager().beginTransaction()
+                    ft.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, R.anim.abc_fade_in, R.anim.abc_fade_out)
+
+                            ft.replace(R.id.fragment_container, chatFragment).commit()
+
                 }
                 R.id.action_users -> {
                     getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, R.anim.abc_fade_in, R.anim.abc_fade_out)
                             .replace(R.id.fragment_container, UserListFragment()).commit()
                 }
 

@@ -1,14 +1,13 @@
 package com.example.visa.chatappclient
 
+import android.animation.Animator
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
+import android.view.animation.AnimationUtils
+import android.widget.*
 import java.io.BufferedReader
 import java.io.PrintWriter
 import java.net.Socket
@@ -35,10 +34,11 @@ class ChatFragment: Fragment() {
         val textBox: EditText = view.findViewById(R.id.latestMessage)
         adapter = CustomAdapter(listView.context,list)
         listView.adapter = adapter
-        var button: Button = view.findViewById(R.id.button)
+        var button: ImageButton = view.findViewById(R.id.button)
         button.setOnClickListener {
             sendMessage(textBox.text.toString())
         }
+
         button.isEnabled
         initialized = true
         return view

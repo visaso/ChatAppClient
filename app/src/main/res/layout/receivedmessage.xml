@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="5dp"
     android:orientation="horizontal"
     android:layout_gravity="end">
 
@@ -11,18 +12,17 @@
         android:id="@+id/sentMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:gravity="start"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_rectangle_orange"
-        android:maxWidth="190dp"
+        android:maxWidth="290dp"
         android:padding="10dp"
         android:text="jeeeeeeeee"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         />
 
     <TextView

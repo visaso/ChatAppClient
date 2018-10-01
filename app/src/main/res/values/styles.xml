@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="xdlsd" parent="AppTheme" >
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryDark">@color/green</item>
+    </style>
+
 </resources>

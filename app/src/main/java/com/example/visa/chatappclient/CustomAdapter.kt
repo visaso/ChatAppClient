@@ -66,8 +66,11 @@ class CustomAdapter(val context: Context, var list: MutableList<Message>): BaseA
         val teksti: TextView = v.findViewById(R.id.sentMessage)
 
 
+
         try {
+            val username: TextView = v.findViewById(R.id.nameinmessage)
             val timeStamp: TextView = v.findViewById(R.id.timeStamp)
+            username.text = m.user
             timeStamp.text = m.timeStamp
         } catch (e: IllegalStateException) {
             println("Server")
