@@ -29,10 +29,10 @@ class ChatFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.fragmentlayout, container,false)
-        var list = ChatHistory.getHistory()
+        //var list = ChatHistory.getHistory()
         var listView: ListView = view.findViewById(R.id.listView)
         val textBox: EditText = view.findViewById(R.id.latestMessage)
-        adapter = CustomAdapter(listView.context,list)
+        adapter = CustomAdapter(listView.context,ChatHistory.messages)
         listView.adapter = adapter
         var button: ImageButton = view.findViewById(R.id.button)
         button.setOnClickListener {
