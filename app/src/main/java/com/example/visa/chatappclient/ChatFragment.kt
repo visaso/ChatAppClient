@@ -19,26 +19,23 @@ class ChatFragment: Fragment() {
     //lateinit var list: MutableList<Message>
     lateinit var adapter: CustomAdapter
     var initialized : Boolean = false
+    lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var list = ChatHistory.getHistory()
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.fragmentlayout, container,false)
-        //var list = ChatHistory.getHistory()
-        var listView: ListView = view.findViewById(R.id.listView)
+        listView = view.findViewById(R.id.listView)
         val textBox: EditText = view.findViewById(R.id.latestMessage)
         adapter = CustomAdapter(listView.context,ChatHistory.messages)
         listView.adapter = adapter
         var button: ImageButton = view.findViewById(R.id.button)
         button.setOnClickListener {
             sendMessage(textBox.text.toString())
+            textBox.text.clear()
         }
-
         button.isEnabled
         initialized = true
         return view
@@ -56,7 +53,7 @@ class ChatFragment: Fragment() {
             } else {
                 adapter.add(json.getString("timeSent"), "Server", json.getString("text"), TYPE.SERVER)
             }
-            //listView.setSelection(adapter.count - 1)
+            listView.setSelection(adapter.count - 1)
         }
     }
 
@@ -65,15 +62,4 @@ class ChatFragment: Fragment() {
             ChatHistory.sendMessage(message)
         }.start()
     }
-
-    /*
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
-    */
-
-
-
 }

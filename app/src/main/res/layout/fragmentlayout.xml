@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/babyblue"
+    android:background="@android:color/white"
     android:clipChildren="false">
 
     <ListView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="3dp"
         android:layout_marginLeft="3dp"
+        android:layout_marginTop="10dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         android:divider="@null"
@@ -22,15 +23,16 @@
 
     <EditText
         android:id="@+id/latestMessage"
-        android:layout_width="315dp"
+        android:layout_width="305dp"
         android:background="@drawable/inputtextbackground"
         android:layout_height="40dp"
-        android:hint="Message"
+        android:hint="@string/messagehint"
         android:paddingStart="10dp"
+        android:textCursorDrawable="@android:color/black"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="5dp"
         android:gravity="start|center_vertical"
-        android:textColorHint="@color/yellow"
+        android:textColorHint="#333333"
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -43,10 +45,7 @@
         android:foreground="?android:attr/selectableItemBackgroundBorderless"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginVertical="5dp"
         android:padding="8dp"
-        android:text="Send"
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>

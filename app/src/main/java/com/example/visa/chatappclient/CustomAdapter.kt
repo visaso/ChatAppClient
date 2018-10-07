@@ -13,10 +13,7 @@ import android.widget.TextView
 import com.example.visa.chatappclient.R.id.timeStamp
 import com.example.visa.chatappclient.R.layout.*
 
-
 class CustomAdapter(val context: Context, var list: MutableList<Message>): BaseAdapter() {
-
-
 
     override fun getItem(p0: Int): Any {
         return list[p0]
@@ -62,10 +59,7 @@ class CustomAdapter(val context: Context, var list: MutableList<Message>): BaseA
                 TYPE.OUTGOING -> inflater.inflate(receivedmessage,null) as ConstraintLayout
             }
         }
-
         val teksti: TextView = v.findViewById(R.id.sentMessage)
-
-
         try {
             val username: TextView = v.findViewById(R.id.nameinmessage)
             username.text = m.user

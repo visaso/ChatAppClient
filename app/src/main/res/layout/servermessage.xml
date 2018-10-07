@@ -16,7 +16,7 @@
         android:layout_marginTop="8dp"
         android:padding="4dp"
         android:maxWidth="190dp"
-        android:text="jeee"
+        tools:text="jeee"
         android:elevation="2dp"
         android:textSize="12sp"
         android:gravity="center"
