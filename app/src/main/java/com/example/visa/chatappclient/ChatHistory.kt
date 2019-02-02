@@ -25,7 +25,6 @@ object ChatHistory {
         return messages
     }
 
-
     interface ChatListener {
         fun onConnected()
         fun onMessage(s: String)
@@ -76,12 +75,8 @@ object ChatHistory {
         var temp = message
         if (temp.startsWith("accOn:")) {
             temp = message.removeRange(0..7).dropLast(1)
-            //message = message.removePrefix("]")
             users = temp.split(", ")
             Log.e("UserLIST", "$users")
         }
     }
-
-
-
 }

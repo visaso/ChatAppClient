@@ -32,7 +32,6 @@ class UserListAdapter(val context: Context, var list: List<String>): BaseAdapter
     }
 
     fun add(user: String) {
-        //list.add(user)
         notifyDataSetChanged()
     }
 

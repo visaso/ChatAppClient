@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         var chatFragment = ChatFragment()
         var userlistFragment = UserListFragment()
         supportActionBar!!.setTitle("QckCht")
-
         val self = this
         var username = intent.getStringExtra("EXTRANAME")
         Thread(Runnable {

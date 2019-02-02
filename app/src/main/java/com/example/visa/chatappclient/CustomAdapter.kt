@@ -76,6 +76,4 @@ class CustomAdapter(val context: Context, var list: MutableList<Message>): BaseA
         teksti.text = m.message
         return v
     }
-
-
 }

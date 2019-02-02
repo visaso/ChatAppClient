@@ -16,7 +16,7 @@ import com.example.visa.chatappclient.R.id.*
 import org.json.JSONObject
 
 class ChatFragment: Fragment() {
-    //lateinit var list: MutableList<Message>
+
     lateinit var adapter: CustomAdapter
     var initialized : Boolean = false
     lateinit var listView: ListView
