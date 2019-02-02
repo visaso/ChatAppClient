@@ -55,7 +55,7 @@ object ChatHistory {
                     }
                 }
             } catch (e: Exception) {
-                Log.e("xd", "FAIL ${e.message}")
+                Log.e("Error", "FAIL ${e.message}")
             }
     }
 
